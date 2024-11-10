@@ -3,12 +3,13 @@
 client_id = "50d84e88686e98fa8fe976480f93b15a"
 name = "optimised-wishlist-plus"
 handle = "optimised-wishlist-plus"
-application_url = "https://chan-kent-fx-inkjet.trycloudflare.com"
+application_url = "https://hairy-citation-edges-apply.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
 dev_store_url = "wishlist-lot.myshopify.com"
+include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -16,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://chan-kent-fx-inkjet.trycloudflare.com/auth/callback",
-  "https://chan-kent-fx-inkjet.trycloudflare.com/auth/shopify/callback",
-  "https://chan-kent-fx-inkjet.trycloudflare.com/api/auth/callback"
+  "https://hairy-citation-edges-apply.trycloudflare.com/auth/callback",
+  "https://hairy-citation-edges-apply.trycloudflare.com/auth/shopify/callback",
+  "https://hairy-citation-edges-apply.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -8,21 +8,35 @@ import {
   InlineGrid,
   Button,
 } from "@shopify/polaris";
+import db from "../db.server";
 import { TitleBar } from "@shopify/app-bridge-react";
 import { useState } from "react";
 import { json } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
 
 export async function loader(){
-  let settings = { 
-    name:"My React App New Data",
-  description:"This is a Test Store"
-  }
+  let settings = await db.settings.findFirst();
   return json(settings);
 }
 export async function action({request}){
   let settings = await request.formData();
   settings = Object.fromEntries(settings);
+  await db.settings.upsert({
+    where: {
+      id: '1',
+    },
+    update: {
+      id: '1',
+      name:settings.name,
+      description:settings.description,
+    },
+    create: {
+      id: '1',
+      name:settings.name,
+      description:settings.description,
+    },
+  })
+  console.log("first");
   return json(settings);
 }
 
