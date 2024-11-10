@@ -1,21 +1,76 @@
-import {LegacyCard, EmptyState} from '@shopify/polaris';
-import React from 'react';
+import {
+  Box,
+  Card,
+  Page,
+  Text,
+  BlockStack,
+  TextField,
+  InlineGrid,
+  Button,
+} from "@shopify/polaris";
+import { TitleBar } from "@shopify/app-bridge-react";
+import { useState } from "react";
+import { json } from "@remix-run/node";
+import { Form, useLoaderData } from "@remix-run/react";
 
-export default function Settings(){
+export async function loader(){
+  let settings = { 
+    name:"My React App New Data",
+  description:"This is a Test Store"
+  }
+  return json(settings);
+}
+export async function action({request}){
+  let settings = await request.formData();
+  settings = Object.fromEntries(settings);
+  return json(settings);
+}
+
+export default function Settings() {
+
+  const settings  = useLoaderData();
+  const [formState, setFormState] = useState(settings);
   return (
-    <LegacyCard sectioned>
-      <EmptyState
-        heading="Upload a file to get started"
-        action={{content: 'Upload files'}}
-        image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"
-        fullWidth
-      >
-        <p>
-          You can use the Files section to upload images, videos, and other
-          documents. This example shows the content with a centered layout and
-          full width.
-        </p>
-      </EmptyState>
-    </LegacyCard>
+    <Page
+      divider
+      primaryAction={{ content: "View on your store", disabled: true }}
+      secondaryActions={[
+        {
+          content: "Duplicate",
+          accessibilityLabel: "Secondary action label",
+          onAction: () => alert("Duplicate action"),
+        },
+      ]}
+    >
+      <TitleBar title="Settings" />
+      <BlockStack gap={{ xs: "800", sm: "400" }}>
+        <InlineGrid columns={{ xs: "1fr", md: "2fr 5fr" }} gap="400">
+          <Box
+            as="section"
+            paddingInlineStart={{ xs: 400, sm: 0 }}
+            paddingInlineEnd={{ xs: 400, sm: 0 }}
+          >
+            <BlockStack gap="400">
+              <Text as="h3" variant="headingMd">
+                Settings
+              </Text>
+              <Text as="p" variant="bodyMd">
+                Update app settings and prefernces.
+              </Text>
+            </BlockStack>
+          </Box>
+          <Card roundedAbove="sm">
+            <Form method="POST" >
+              <BlockStack gap="400">
+                <TextField name="name" label="App Name" value={formState.name} onChange={((value)=> setFormState({...formState , name:value }))} />
+                <TextField name="description" label="Description" value={formState.description} onChange={((value)=> setFormState({...formState , description:value}))} />
+                <Button submit={true}>Save</Button>
+              </BlockStack>
+            </Form>
+          </Card>
+        </InlineGrid>
+      </BlockStack>
+    </Page>
   );
 }
+

@@ -3,7 +3,7 @@
 client_id = "50d84e88686e98fa8fe976480f93b15a"
 name = "optimised-wishlist-plus"
 handle = "optimised-wishlist-plus"
-application_url = "https://cards-foods-protecting-situations.trycloudflare.com"
+application_url = "https://chan-kent-fx-inkjet.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://cards-foods-protecting-situations.trycloudflare.com/auth/callback",
-  "https://cards-foods-protecting-situations.trycloudflare.com/auth/shopify/callback",
-  "https://cards-foods-protecting-situations.trycloudflare.com/api/auth/callback"
+  "https://chan-kent-fx-inkjet.trycloudflare.com/auth/callback",
+  "https://chan-kent-fx-inkjet.trycloudflare.com/auth/shopify/callback",
+  "https://chan-kent-fx-inkjet.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
