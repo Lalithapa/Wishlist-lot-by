@@ -3,7 +3,7 @@
 client_id = "50d84e88686e98fa8fe976480f93b15a"
 name = "optimised-wishlist-plus"
 handle = "optimised-wishlist-plus"
-application_url = "https://hairy-citation-edges-apply.trycloudflare.com"
+application_url = "https://unable-and-sun-classified.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://hairy-citation-edges-apply.trycloudflare.com/auth/callback",
-  "https://hairy-citation-edges-apply.trycloudflare.com/auth/shopify/callback",
-  "https://hairy-citation-edges-apply.trycloudflare.com/api/auth/callback"
+  "https://unable-and-sun-classified.trycloudflare.com/auth/callback",
+  "https://unable-and-sun-classified.trycloudflare.com/auth/shopify/callback",
+  "https://unable-and-sun-classified.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
